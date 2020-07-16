@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+<!--调用2个变量的原始办法-->
+  <h1>{{firstName+' '+lastName}}</h1>
+  <h1>{{firstName}} {{lastName}}</h1>
+  <h1>{{getName()}}</h1>
+
+<!--使用计算属性  本质是个属性，无需带括号-->
+  <h1>{{compName}}</h1>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el:'#app',
+    data:{
+      firstName:'zheng',
+      lastName:'chu jian'
+    },
+    methods:{
+      getName:function () {
+        return this.firstName+' '+this.lastName;
+      }
+    },
+    //computed :计算属性
+    computed:{
+      //看似定义了一个函数，实际上是一个属性
+      //compName 是一个名词，而非动词
+      compName:function () {
+        return this.firstName+' '+this.lastName;
+      }
+    }
+  })
+</script>
+</body>
+</html>

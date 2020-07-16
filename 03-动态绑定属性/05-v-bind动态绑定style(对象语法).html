@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+
+</head>
+<body>
+
+<div id="app">
+<!--  <h1 v-bind:style={key1(属性名):value1(属性值),key2(属性名):value2(属性值)}>{{message}}</h1>-->
+
+<!--  属性名只能用驼峰法。font-size使用无效 -->
+  <h1 :style="{fontSize:'100px',color:'red'}">{{message}}</h1>
+
+<!--  value值直接添固定的值时要带引号，而不固定的时候需要是一个变量-->
+  <h1 :style="{fontSize:finalSize+'px',color:finalColor}">{{message}}</h1>
+
+  <h1 :style="getStyle()">{{message}}</h1>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el:'#app',
+    data:{
+      message:'Hello World',
+      finalSize:50,
+      finalColor:'green'
+    },
+    methods:{
+      getStyle:function () {
+        return {fontSize:this.finalSize+'px',color:'yellow'};
+      }
+    }
+  })
+</script>
+</body>
+</html>

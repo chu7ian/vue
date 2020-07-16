@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    .change{
+      color: red;
+    }
+  </style>
+</head>
+<body>
+
+<!--作业需求：点击列表的哪一行，那么该行文字变红-->
+<div id="app">
+<!--  <h1>{{message}}</h1>-->
+  <ul>
+    <li @click="getClass(index)" :class="{change:index==mark}" v-for="(key,index) in movies">{{index}}--{{key}}</li>
+  </ul>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el:'#app',
+    data:{
+      // message:'Hello World'
+      movies:['AAAA','BBBB','CCCC','DDDD'],
+      mark:-1
+    },
+    methods:{
+      getClass:function (index) {
+        this.mark = index
+      }
+    }
+  })
+</script>
+
+</body>
+</html>

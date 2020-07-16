@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+<!--  数组语法 相当于固定class-->
+  <h1 class="title" :class="['active','live']">{{message}}</h1>
+
+<!--  不带引号时是变量-->
+  <h1 class="title" :class="[active,live]">{{message}}</h1>
+
+<!--  当数据过于复杂时，可以放在methods中或者computed中-->
+  <h1 class="title" :class="getClass()">{{message}}</h1>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el:'#app',
+    data:{
+      message:'Hello World',
+      active:'AAAA',
+      live:'BBBB'
+    },
+    methods:{
+      getClass:function () {
+        return ['active',this.live];
+      }
+    }
+  })
+</script>
+
+</body>
+</html>

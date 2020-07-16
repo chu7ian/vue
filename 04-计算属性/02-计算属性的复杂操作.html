@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<!--获取所有书的总价格-->
+<div id="app">
+  <h1>总价格：{{totalPrice}}</h1>
+
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el:'#app',
+    data:{
+      books:[
+        {id:10,name:'AAA',price:100},
+        {id:11,name:'BBB',price:200},
+        {id:12,name:'CCC',price:250},
+        {id:13,name:'DDD',price:300},
+      ]
+    },
+    computed:{
+      totalPrice:function () {
+        let total = 0;
+        // for (let i=0 ;i<this.books.length;i++){
+        //   total += this.books[i]['price'];
+        // }
+
+        // for (let i in this.books){
+        //   total += this.books[i]['price'];
+        // }
+
+        for (let book of this.books){
+          total += book['price'];
+        }
+
+        return total;
+      }
+    }
+  })
+</script>
+</body>
+</html>

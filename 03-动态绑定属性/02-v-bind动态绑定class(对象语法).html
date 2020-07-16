@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    .active{
+      color: red;
+    }
+  </style>
+</head>
+<body>
+
+<div id="app">
+<!--  <h1 class="active">{{message}}</h1>-->
+
+<!--  绑定一个对象，value是boolean值-->
+<!--  <h1 v-bind:class="{类名1：value1,类名2：value2}">{{message}}</h1>-->
+
+<!--  将固定的class放在一边，将可能存在或删除的class放另一边-->
+  <h1 class="title" v-bind:class="{active:isAction,live:isLive}">{{message}}</h1>
+
+<!--  当对象过于复杂时，可以放在methods中或者computed中-->
+  <h1 class="title" v-bind:class="getClass()">{{message}}2</h1>
+
+  <button v-on:click="btnClick">按钮</button>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el:'#app',
+    data:{
+      message:'Hello World',
+      isAction :true,
+      isLive :true
+    },
+    methods:{
+      btnClick :function () {
+        //取isAction的反值，实现真假转换
+        this.isAction = !this.isAction;
+      },
+      getClass :function () {
+        return {active:this.isAction,live:this.isLive};
+      }
+    }
+  })
+</script>
+
+</body>
+</html>

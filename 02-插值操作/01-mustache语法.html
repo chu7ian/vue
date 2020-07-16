@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+
+<div id="app">
+<!--  mustache语法就是双大括号的正式叫法，可以写简单的表达式-->
+  <h1>{{message}}</h1>
+  <h2>{{name+' '+age}}</h2>
+  <h3>{{age * 2}}</h3>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el:'#app',
+    data:{
+      message:'Hello World',
+      name:'zcj',
+      age:25
+    }
+  })
+</script>
+
+</body>
+</html>
